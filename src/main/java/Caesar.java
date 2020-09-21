@@ -83,13 +83,13 @@ public class Caesar {
        String dkey = "";
         for (int i = 0; i < message.length(); i++) {
             if (!(message.charAt(i) >= 65 && message.charAt(i) <= 90) && !(message.charAt(i) >= 97 && message.charAt(i) <= 122)) {
-                    dkey += message.charAt(i);
+                dkey += message.charAt(i);
             }
             else if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
                 int x = message.charAt(i) - 65;
                 x -= key;
                 if (x < 0) {
-                    x = 26 + x;
+                    x = 25 + x;
                 }
                 dkey += (char) (x + 65);
             }
@@ -97,7 +97,7 @@ public class Caesar {
                 int x = message.charAt(i) - 97;
                 x -= key;
                 if (x < 0) {
-                    x = 26 + x;
+                    x = 25 + x;
                 }
                 dkey += (char) (x + 97);
             }
