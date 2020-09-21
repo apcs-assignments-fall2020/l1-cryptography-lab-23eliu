@@ -2,8 +2,29 @@ import java.util.Scanner;
 
 public class Caesar {
     public static String encryptCaesar(String message) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        String efin = "";
+        for (int i = 0; i < message.length(); i++) {
+            if (!(message.charAt(i) >= 65 && message.charAt(i) <= 90) && !(message.charAt(i) >= 97 && message.charAt(i) <= 122)) {
+                efin += message.charAt(i);
+            }
+            else if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
+                int x = message.charAt(i) - 65;
+                x += 3;
+                if (x % 26 >= 0) {
+                    x = x % 26;
+                }
+                efin += (char) (x + 65);
+            }
+            else {
+                int x = message.charAt(i) - 97;
+                x += 3;
+                if (x % 26 >= 0) {
+                    x = x % 26;
+                }
+                efin += (char) (x + 97);
+            }
+        }
+        return efin;
     }
 
     public static String decryptCaesar(String message) {
