@@ -88,16 +88,16 @@ public class Caesar {
             else if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
                 int x = message.charAt(i) - 65;
                 x -= key;
-                if (x < 0) {
-                    x = 25 + x;
+                while (x < 0) {
+                    x = 26 + x;
                 }
                 dkey += (char) (x + 65);
             }
             else {
                 int x = message.charAt(i) - 97;
                 x -= key;
-                if (x < 0) {
-                    x = 25 + x;
+                while (x < 0) {
+                    x = 26 + x;
                 }
                 dkey += (char) (x + 97);
             }
