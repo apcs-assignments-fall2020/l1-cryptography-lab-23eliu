@@ -9,32 +9,28 @@ public class Vigenere {
                 efin += message.charAt(i);
             }
             else if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
-                if (count == key.length()-1) {
+                if (count == key.length()) {
                     count = 0;
                 }
-                else {
-                    count++; 
-                }
                 int x = message.charAt(i) - 65;
-                x += (key.charAt(count) - 66);
+                x += (key.charAt(count) - 65);
                 if (x % 26 >= 0) {
                     x = x % 26;
                 }
                 efin += (char) (x + 65);
+                count++; 
             }
             else {
-                if (count == key.length()-1) {
+                if (count == key.length()) {
                     count = 0;
                 }
-                else {
-                    count++; 
-                }
                 int x = message.charAt(i) - 97;
-                x += (key.charAt(count) - 98);
+                x += (key.charAt(count) - 65);
                 if (x % 26 >= 0) {
                     x = x % 26;
                 }
                 efin += (char) (x + 97);
+                count++;
             }
         }
         return efin;
@@ -48,32 +44,31 @@ public class Vigenere {
                 dfin += message.charAt(i);
             }
             else if (message.charAt(i) >= 65 && message.charAt(i) <= 90) {
-                if (count == key.length()-1) {
+                if (count == key.length()) {
                     count = 0;
                 }
-                else {
-                    count++; 
-                }
+                
                 int x = message.charAt(i) - 65;
-                x -= (key.charAt(count) - 66);
+                x -= (key.charAt(count) - 65);
+                x += 26;
                 if (x % 26 >= 0) {
                     x = x % 26;
                 }
                 dfin += (char) (x + 65);
+                count++;
             }
             else {
-                if (count == key.length()-1) {
+                if (count == key.length()) {
                     count = 0;
                 }
-                else {
-                    count++; 
-                }
                 int x = message.charAt(i) - 97;
-                x -= (key.charAt(count) - 98);
+                x -= (key.charAt(count) - 65);
+                x += 26;
                 if (x % 26 >= 0) {
                     x = x % 26;
                 }
                 dfin += (char) (x + 97);
+                count++;
             }
         }
         return dfin;
